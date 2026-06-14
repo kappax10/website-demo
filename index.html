@@ -10,14 +10,14 @@
 <style>
   /* ============ TOKENS ============ */
   :root{
-    --bg:        #0F2622;
-    --bg-soft:   #133732;
-    --panel:     #18403A;
-    --line:      rgba(245,241,230,0.12);
-    --ink:       #F5F1E6;
-    --ink-dim:   #9FBDB4;
-    --accent:    #FFB400;
-    --accent-2:  #FF6B4A;
+    --bg:        #EDEAFC;
+    --bg-soft:   #DED8F8;
+    --panel:     #FFFFFF;
+    --line:      rgba(26,26,46,0.10);
+    --ink:       #1A1A2E;
+    --ink-dim:   #6E6890;
+    --accent:    #6C5CE7;
+    --accent-2:  #2D2A4A;
     --radius-lg: 28px;
     --radius-md: 18px;
     --radius-sm: 10px;
@@ -45,7 +45,7 @@
   a{ color:inherit; text-decoration:none; }
   img{ max-width:100%; display:block; }
 
-  ::selection{ background:var(--accent); color:var(--bg); }
+  ::selection{ background:var(--accent); color:#FFFFFF; }
 
   :focus-visible{
     outline:2px solid var(--accent);
@@ -100,12 +100,12 @@
   }
   .btn-primary{
     background:var(--accent);
-    color:#1A1300;
-    box-shadow:0 8px 24px -8px rgba(255,180,0,0.55);
+    color:#FFFFFF;
+    box-shadow:0 8px 24px -8px rgba(108,92,231,0.55);
   }
   .btn-primary:hover{
     transform:translateY(-3px);
-    box-shadow:0 14px 30px -8px rgba(255,180,0,0.65);
+    box-shadow:0 14px 30px -8px rgba(108,92,231,0.65);
   }
   .btn-ghost{
     background:transparent;
@@ -122,6 +122,45 @@
   }
   .btn:hover .btn-arrow{ transform:translateX(4px); }
 
+  /* ============ LOGO ============ */
+  .logo{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--font-display);
+    font-size:1.25rem;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  .logo-mark{
+    width:30px;
+    height:26px;
+    flex-shrink:0;
+    color:var(--ink);
+  }
+  .logo-mark path{
+    fill:none;
+    stroke:currentColor;
+    stroke-width:3;
+    stroke-linecap:square;
+    stroke-linejoin:miter;
+  }
+  .logo-text{ font-weight:500; }
+  .logo-text b{ font-weight:800; }
+  .logo-text .dot{ color:var(--accent); }
+  .logo-group{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .logo-tagline{
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    color:var(--ink-dim);
+    margin-left:40px;
+  }
+
   /* ============ NAV ============ */
   header{
     position:fixed;
@@ -132,7 +171,7 @@
     border-bottom:1px solid transparent;
   }
   header.scrolled{
-    background:rgba(15,38,34,0.78);
+    background:rgba(237,234,252,0.78);
     backdrop-filter:blur(14px);
     -webkit-backdrop-filter:blur(14px);
     padding:14px 0;
@@ -143,16 +182,6 @@
     align-items:center;
     justify-content:space-between;
   }
-  .logo{
-    font-family:var(--font-display);
-    font-weight:800;
-    font-size:1.35rem;
-    letter-spacing:-0.02em;
-    display:flex;
-    align-items:baseline;
-    gap:2px;
-  }
-  .logo span{ color:var(--accent); }
   .nav-links{
     display:flex;
     align-items:center;
@@ -200,10 +229,10 @@
     inset:0;
     z-index:-1;
     background:
-      radial-gradient(circle at 14% 18%, rgba(255,180,0,0.16), transparent 38%),
-      radial-gradient(circle at 88% 8%, rgba(255,107,74,0.14), transparent 42%),
-      repeating-linear-gradient(0deg, rgba(245,241,230,0.025) 0 1px, transparent 1px 64px),
-      repeating-linear-gradient(90deg, rgba(245,241,230,0.025) 0 1px, transparent 1px 64px);
+      radial-gradient(circle at 14% 18%, rgba(108,92,231,0.16), transparent 38%),
+      radial-gradient(circle at 88% 8%, rgba(45,42,74,0.12), transparent 42%),
+      repeating-linear-gradient(0deg, rgba(26,26,46,0.035) 0 1px, transparent 1px 64px),
+      repeating-linear-gradient(90deg, rgba(26,26,46,0.035) 0 1px, transparent 1px 64px);
   }
   .hero-inner{
     display:grid;
@@ -234,7 +263,7 @@
     background:linear-gradient(165deg, var(--panel), var(--bg-soft));
     border:1px solid var(--line);
     border-radius:var(--radius-lg);
-    box-shadow:0 30px 70px -30px rgba(0,0,0,0.6);
+    box-shadow:0 30px 70px -30px rgba(45,42,74,0.25);
     overflow:hidden;
     transform:rotate(1.2deg);
     transition:transform .6s var(--ease);
@@ -249,7 +278,7 @@
   }
   .panel-head .dot{
     width:10px; height:10px; border-radius:50%;
-    background:rgba(245,241,230,0.18);
+    background:rgba(26,26,46,0.15);
   }
   .panel-head .dot:nth-child(1){ background:var(--accent-2); }
   .panel-head .dot:nth-child(2){ background:var(--accent); }
@@ -308,7 +337,7 @@
     gap:24px;
   }
   .service-card{
-    background:var(--bg-soft);
+    background:var(--panel);
     border:1px solid var(--line);
     border-radius:var(--radius-md);
     padding:38px;
@@ -319,8 +348,8 @@
   }
   .service-card:hover{
     transform:translateY(-8px);
-    border-color:rgba(255,180,0,0.4);
-    background:var(--panel);
+    border-color:rgba(108,92,231,0.4);
+    background:var(--bg-soft);
   }
   .service-card .num{
     font-family:var(--font-mono);
@@ -339,7 +368,7 @@
     width:48px; height:48px;
     border-radius:14px;
     display:flex; align-items:center; justify-content:center;
-    background:rgba(255,180,0,0.12);
+    background:rgba(108,92,231,0.12);
     color:var(--accent);
   }
   .service-card .icon svg{ width:24px; height:24px; }
@@ -348,13 +377,13 @@
   .service-card.featured{
     grid-column:span 2;
     grid-row:span 2;
-    background:linear-gradient(155deg, var(--panel) 0%, var(--bg-soft) 100%);
+    background:linear-gradient(155deg, var(--bg-soft) 0%, var(--panel) 100%);
     padding:46px;
     justify-content:space-between;
   }
   .service-card.featured h3{ font-size:2rem; max-width:14ch; }
   .service-card.featured .icon{
-    background:rgba(255,107,74,0.16);
+    background:rgba(45,42,74,0.12);
     color:var(--accent-2);
     width:58px; height:58px;
   }
@@ -415,7 +444,7 @@
   .why-item .why-icon{
     width:48px; height:48px;
     border-radius:12px;
-    background:rgba(255,107,74,0.14);
+    background:rgba(45,42,74,0.10);
     color:var(--accent-2);
     display:flex; align-items:center; justify-content:center;
   }
@@ -450,7 +479,7 @@
     position:absolute;
     width:380px; height:380px;
     right:-120px; bottom:-160px;
-    background:radial-gradient(circle, rgba(255,180,0,0.18), transparent 70%);
+    background:radial-gradient(circle, rgba(108,92,231,0.18), transparent 70%);
     pointer-events:none;
   }
   .contact-inner h2{
@@ -477,7 +506,7 @@
   .contact-row .why-icon{
     width:44px; height:44px;
     border-radius:12px;
-    background:rgba(255,180,0,0.14);
+    background:rgba(108,92,231,0.14);
     color:var(--accent);
     display:flex; align-items:center; justify-content:center;
     flex-shrink:0;
@@ -509,7 +538,6 @@
     flex-wrap:wrap;
     gap:20px;
   }
-  .footer-inner .logo{ font-size:1.15rem; }
   .footer-meta{
     display:flex;
     gap:32px;
@@ -553,6 +581,7 @@
     section{ padding:80px 0; }
     .contact-inner{ padding:36px 22px; }
     .container{ padding:0 20px; }
+    .logo-tagline{ display:none; }
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -565,7 +594,13 @@
 
 <header id="site-header">
   <nav class="container">
-    <a href="#" class="logo">ΜΥΣΤΙΚΟΔΕ<span>.</span></a>
+    <a href="#" class="logo">
+      <svg class="logo-mark" viewBox="0 0 64 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M2 2 H62 V20"/>
+        <path d="M2 2 V54 H46"/>
+      </svg>
+      <span class="logo-text">MYSTI<b>KODE</b><span class="dot">.</span></span>
+    </a>
     <ul class="nav-links">
       <li><a href="#services">Υπηρεσίες</a></li>
       <li><a href="#why">Γιατί Εμάς</a></li>
@@ -767,7 +802,16 @@
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="container footer-inner">
-    <a href="#" class="logo">ΜΥΣΤΙΚΟΔΕ<span>.</span></a>
+    <div class="logo-group">
+      <a href="#" class="logo">
+        <svg class="logo-mark" viewBox="0 0 64 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M2 2 H62 V20"/>
+          <path d="M2 2 V54 H46"/>
+        </svg>
+        <span class="logo-text">MYSTI<b>KODE</b><span class="dot">.</span></span>
+      </a>
+      <span class="logo-tagline">Code beyond limits. Build with intent.</span>
+    </div>
     <div class="footer-meta">
       <span>Στράβωνος 78, Περιστέρι, Αθήνα 12135</span>
       <a href="tel:+302105760331">210 5760331</a>
@@ -799,7 +843,7 @@
       navLinks.style.flexDirection = 'column';
       navLinks.style.alignItems = 'flex-start';
       navLinks.style.gap = '18px';
-      navLinks.style.background = 'rgba(15,38,34,0.96)';
+      navLinks.style.background = 'rgba(237,234,252,0.96)';
       navLinks.style.border = '1px solid var(--line)';
       navLinks.style.borderRadius = '16px';
       navLinks.style.padding = '24px';
